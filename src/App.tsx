@@ -25,7 +25,7 @@ const COMPRESSIONS={leve:{max:900,quality:.62,label:"Leve"},equilibrada:{max:140
    canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));
    const ctx=canvas.getContext("2d");if(!ctx)return reject(new Error("Não foi possível processar a imagem"));
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
-   canvas.toBlob(blob=>{if(!blob)return reject(new Error("Não foi possível comprimir a imagem"));const rr=new FileReader();rr.onload=()=>resolve(String(rr.result));rr.onerror=reject;rr.readAsDataURL(blob)},"image/webp",.82);
+   canvas.toBlob(blob=>{if(!blob)return reject(new Error("Não foi possível comprimir a imagem"));const rr=new FileReader();rr.onload=()=>resolve(String(rr.result));rr.onerror=reject;rr.readAsDataURL(blob)},"image/webp",quality);
   };
   img.onerror=()=>reject(new Error("Imagem inválida"));img.src=String(r.result);
  };
